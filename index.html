@@ -7,13 +7,23 @@
 
 	<main class="max-w-prose mx-auto px-6 my-12"><article class="prose prose-stone dark:prose-invert">
 		<div class="w-full flex items-center justify-center mb-32"><div><span class="block text-2xl text-center">It has been</span>
-		<span class="font-display block text-5xl text-center my-2"><span id="timer">Loading...</span>
+		<span class="font-display block text-5xl text-center my-2"><span id="timer" style="font-style: italic;">Loading...</span>
 		</span><span class="block text-2xl text-center">since the last time Simon did something unproductive.</span></div></div>
 		<h2>What is this?</h2>
-		<p>This is a website that tracks how long it has been since Simon did something unproductive. It is updated live, so you can see how long it has been since the last time he did something unproductive. (usually happens every day)</p>
+		<p>This is a website that tracks how long it has been since Simon did something unproductive. It is updated live, so you can see how long it has been since the last time he did something unproductive. (usually happens every day). In total, he has been unproductive <span id="count" style="font-style: italic;">Loading...</span> times.</p>
 		<h2>Recent Unproductive Shenanigans</h2>
 		<div id="fuckups">
-			<h3>Loading...</h3>
+			<h3 style="font-style: italic;">Loading...</h3>
+		</div>
+
+		<div id="popup1" class="overlay">
+			<div class="popup">
+				<h2>He did it again!</h2>
+				<a class="close" href="#">&times;</a>
+				<div class="content" style="color:black;">
+					Simon just did something unproductive. Truly unbelievable.
+				</div>
+			</div>
 		</div>
 </body>
 		

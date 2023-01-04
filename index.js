@@ -35,10 +35,18 @@ function refreshFuckups() {
 		audio.play();
 	}
 
+	if (fuckupsCountBefore != fuckupsCount) {
+		//use :target to open the popup
+		open("https://almosyt.github.io/#popup1")
+	}	
 }
 
 
 function displayTimerSinceLastFuckup() {
+	document.getElementById("count").style = "font-style: normal;";
+	document.getElementById("count").style = "font-weight: bold;";
+	document.getElementById("count").innerHTML = fuckupsCount;
+
 	var now = new Date();
 	console.log(now);
 	console.log(fuckups[fuckups.length - 1].date)
