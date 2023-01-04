@@ -29,7 +29,7 @@ function refreshFuckups() {
 	//load the fuckups again
 	//if the fuckup count has changed, play a sound effect and update the fuckup count
 
-	var fuckupsCountBefore = 7;
+	var fuckupsCountBefore = fuckupsCount;
 	loadFuckups();
 	if (fuckupsCountBefore != fuckupsCount) {
 		console.log("fuckups count has changed")
