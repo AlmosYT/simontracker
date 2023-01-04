@@ -9,9 +9,9 @@ function loadFuckups() {
 	//load fuckups from the fuckups.json file (https://raw.githubusercontent.com/AlmosYT/simontracker/main/fuckups.json)
 	//use the fetch() function to load the file
 	//use the .then() function to parse the json file
+	const ms = Date.now();
 
-
-	fetch("https://raw.githubusercontent.com/AlmosYT/simontracker/main/fuckups.json")
+	fetch("https://raw.githubusercontent.com/AlmosYT/simontracker/main/fuckups.json" + "?dummyrq=" + ms, {cache: "no-store"})
 	.then(response => response.json())
 	.then(data => {
 		fuckups =
@@ -49,8 +49,8 @@ function displayTimerSinceLastFuckup() {
 
 	var now = new Date();
 	console.log(now);
-	console.log(fuckups[fuckups.length - 1].date)
-	var lastFuckup = new Date(fuckups[fuckups.length - 1].date * 1000);
+	console.log(fuckups[0].date)
+	var lastFuckup = new Date(fuckups[0].date * 1000);
 
 	var days = Math.floor((now - lastFuckup) / (1000 * 60 * 60 * 24));
 	var hours = Math.floor((now - lastFuckup) / (1000 * 60 * 60) % 24);
@@ -83,3 +83,4 @@ function displaylistOfFuckups() {
 loadFuckups()
 setInterval(displayTimerSinceLastFuckup, 1000)
 setInterval(displaylistOfFuckups, 1000)
+setInterval(refreshFuckups, 10000)
