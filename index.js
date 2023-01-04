@@ -36,7 +36,7 @@ function refreshFuckups() {
 	var fuckupsCountBefore = fuckupsCount;
 	loadFuckups();
 	if (fuckupsCountBefore != fuckupsCount) {
-		var audio = new Audio("https://raw.githubusercontent.com/AlmosYT/simontracker/main/sound.mp3");
+		var audio = new Audio("https://raw.githubusercontent.com/AlmosYT/simontracker/main/sound.weba");
 		audio.play();
 	}
 
