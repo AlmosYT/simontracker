@@ -3,6 +3,7 @@
 
 var fuckups = [];
 var fuckupsCount = 0;
+var audio = new Audio("https://raw.githubusercontent.com/AlmosYT/simontracker/main/sound.weba");
 
 
 function loadFuckups() {
@@ -11,7 +12,7 @@ function loadFuckups() {
 	//use the .then() function to parse the json file
 	const ms = Date.now();
 
-	fetch("https://raw.githubusercontent.com/AlmosYT/simontracker/main/fuckups.json" + "?dummyrq=" + ms, {cache: "no-store"})
+	fetch("https://raw.githubusercontent.com/AlmosYT/simontracker/main/fuckups.json" + "?rq=" + ms, { cache: "no-store" } )
 	.then(response => response.json())
 	.then(data => {
 		fuckups =
@@ -28,17 +29,19 @@ function refreshFuckups() {
 	//load the fuckups again
 	//if the fuckup count has changed, play a sound effect and update the fuckup count
 
-	var fuckupsCountBefore = fuckupsCount;
+	var fuckupsCountBefore = 7;
 	loadFuckups();
 	if (fuckupsCountBefore != fuckupsCount) {
-		var audio = new Audio("https://raw.githubusercontent.com/AlmosYT/simontracker/main/sound.weba");
+		console.log("fuckups count has changed")
 		audio.play();
+		//wait for the audio to finish playing, then open the popup
+		setTimeout(openPopup, audio.duration * 1000);
+		
 	}
+}
 
-	if (fuckupsCountBefore != fuckupsCount) {
-		//use :target to open the popup
-		open("https://almosyt.github.io/#popup1")
-	}	
+function openPopup() {
+	open("https://almosyt.github.io/#popup1", "_self")
 }
 
 
